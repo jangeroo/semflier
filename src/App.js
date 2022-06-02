@@ -10,6 +10,7 @@ export default function App() {
     <AppContext.Provider value={{ state, dispatch, actions }}>
       <h1>Seminar Flier Configurator</h1>
       <ConfigPanel />
+      <pre>{JSON.stringify(state, null, 4)}</pre>
     </AppContext.Provider>
   );
 }
