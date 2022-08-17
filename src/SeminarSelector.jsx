@@ -13,6 +13,7 @@ export default function SeminarSelector() {
   return (
     <div>
       <label>Seminar</label>
+      <br />
       <select name="seminar" ref={selection} onChange={handleSelection}>
         <option value=""></option>
         {SEMINARS.map((sem) => (

@@ -1,6 +1,6 @@
 const initialState = {
   seminar: null,
-  dates: [],
+  dates: [...Array(10)],
 };
 
 const reducer = (state, action) => {

@@ -1,5 +1,12 @@
 const SEMINARS = [
   {
+    code: "BEX",
+    title: "Being Extraordinary",
+    subtitle: "The Pathway to Adventure",
+    description: "Heres a description for the Commitment Seminar",
+    PREREQS: [],
+  },
+  {
     code: "CPA",
     title: "Commitment",
     subtitle: "The Pathway to Adventure",

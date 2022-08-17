@@ -1,19 +1,22 @@
-import React, { useContext } from "react";
-import { DateTime } from "luxon";
+import * as React from "react";
+import { add, format } from "date-fns";
 import AppContext from "./AppContext";
+import styled from "styled-components";
 
 export default function DateSelectors() {
-  const { dispatch, actions } = useContext(AppContext);
+  const { state, dispatch, actions } = React.useContext(AppContext);
 
   const handleChange = (event) => {
-    var startDate = DateTime.fromISO(event.target.value);
-    console.log(`Start Date: ${startDate}`);
+    const dateInput = event.target.value;
 
-    var dates = [...Array(10).keys()].map((session) => {
-      return startDate.plus({ days: session * 7 });
+    if (dateInput === "") return dispatch(actions.SET_DATES([...Array(10)]));
+
+    const startDate = new Date(dateInput + "T00:00:00");
+
+    const dates = state.dates.map((date, session) => {
+      // console.log({ date, session });
+      return format(add(startDate, { weeks: session }), "yyyy-MM-dd");
     });
-
-    console.log({ dates });
 
     dispatch(actions.SET_DATES(dates));
   };
@@ -22,9 +25,26 @@ export default function DateSelectors() {
     <div>
       <div>
         <label>DateSelectors</label>
-        <input type="date" onChange={handleChange} />
+        {state.dates.map((date, i) => (
+          <DateSelector key={i}>
+            Session #{i + 1}
+            <Input
+              type="date"
+              onChange={handleChange}
+              value={date ? date : ""}
+            />
+          </DateSelector>
+        ))}
       </div>
-      <div>Dates</div>
     </div>
   );
 }
+
+const DateSelector = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
+const Input = styled.input`
+  width: 150px;
+`;
