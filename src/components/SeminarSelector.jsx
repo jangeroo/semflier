@@ -1,15 +1,17 @@
 import React, { useContext, useRef } from "react";
 import AppContext from "./AppContext";
-import { SEMINARS } from "./assets/data";
+import { SEMINARS } from "../assets/data";
 import styled from 'styled-components';
 
 export default function SeminarSelector() {
-  const { dispatch, actions } = useContext(AppContext);
+  const { state, dispatch, actions } = useContext(AppContext);
   const selection = useRef();
 
   const handleSelection = () => {
     dispatch(actions.SELECT_SEMINAR(selection.current.value));
   };
+
+  console.log({ seminar: state.seminar });
 
   return (
     <div>
@@ -19,7 +21,7 @@ export default function SeminarSelector() {
         onChange={handleSelection}
         required
       >
-        <Option value="" disabled selected>Please select a seminar...</Option>
+        <Option value="" defaultValue>Please select a seminar...</Option>
         {SEMINARS.map((sem) => (
           <Option key={sem.code} value={sem.code}>
             ({sem.code}) {sem.title}
@@ -38,7 +40,7 @@ const Select = styled.select`
 `
 
 const Option = styled.option`
-  &[value=""][disabled] {
+  &[value=""] {
     display: none;
   }
 `;

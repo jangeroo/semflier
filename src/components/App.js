@@ -3,7 +3,7 @@ import AppContext from "./AppContext";
 import ConfigPanel from "./ConfigPanel";
 import PreviewPanel from "./PreviewPanel";
 
-import { reducer, initialState, actions } from "./store.js";
+import { reducer, initialState, actions } from "../store.js";
 import styled from "styled-components";
 
 import "./App.css";
