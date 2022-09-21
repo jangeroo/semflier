@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Header from './Header'
 
 export default function PreviewPanel() {
   return (
@@ -29,18 +30,5 @@ function Preview() {
       <main></main>
       <footer></footer>
     </PreviewWrapper>
-  );
-}
-
-function Header({ children }) {
-  const lastSpace = children.lastIndexOf(" ");
-  const top = children.slice(0, lastSpace);
-  const bottom = children.slice(lastSpace + 1);
-
-  return (
-    <div>
-      <div>{top}</div>
-      <div>{bottom}</div>
-    </div>
   );
 }
