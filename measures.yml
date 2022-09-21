@@ -1,0 +1,34 @@
+all:
+  scaling-factor: calc(1/816); # based on 8.5in = 816px at 100% zoom in firefox
+  # width: 816
+  # height: 1056
+
+  padding: 24px;
+  divider-border: 2px;
+  blue-border: 1.345% of total width;
+
+header:
+  height: 130px == 12.31060606%
+  top-font: 36px
+  bottom-font: 76px
+
+content:
+  border: 10px == #(39 36 50 40)/4
+  title: 14px
+  text: 12px
+  graphic: 109x163
+  prereqs: 8px
+
+  schedule:
+    width: 700
+    height: 345
+    main: 12px
+    attendance: 10px
+    tuition-title: 12px
+      tuition: 11px
+    reviewer-tuition: 10px
+
+  contact: 12px
+
+footer:
+  logo: 102x34
