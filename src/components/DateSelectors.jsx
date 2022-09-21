@@ -39,6 +39,8 @@ const DateSelector = styled.div`
 `;
 
 const Input = styled.input`
+  display: flex;
+  justify-content: space-around;
   width: 150px;
   padding: 0px 4px;
 

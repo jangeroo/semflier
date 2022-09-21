@@ -33,6 +33,8 @@ export default function SeminarSelector() {
 }
 
 const Select = styled.select`
+  width: 100%;
+
   &:required:invalid {
     color: var(--font-placeholder);
     font-style: italic;
