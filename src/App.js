@@ -1,8 +1,12 @@
 import React, { useReducer } from "react";
 import AppContext from "./AppContext";
 import ConfigPanel from "./ConfigPanel";
+import PreviewPanel from "./PreviewPanel";
+
 import { reducer, initialState, actions } from "./store.js";
 import styled from "styled-components";
+
+import "./App.css";
 
 export default function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -12,15 +16,13 @@ export default function App() {
       <h1>Seminar Flier Configurator</h1>
       <Main>
         <ConfigPanel />
-        <div>
-          <div>Dates</div>
-          <pre>{JSON.stringify(state, null, 4)}</pre>
-        </div>
+        <PreviewPanel />
       </Main>
     </AppContext.Provider>
   );
 }
 
-const Main = styled.div`
+const Main = styled.main`
   display: flex;
+  gap: 20px;
 `;

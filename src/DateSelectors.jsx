@@ -1,5 +1,4 @@
 import * as React from "react";
-import { add, format } from "date-fns";
 import AppContext from "./AppContext";
 import styled from "styled-components";
 
@@ -12,28 +11,39 @@ export default function DateSelectors() {
   };
 
   return (
-    <div>
-      <div>
-        {state.dates.map((date, i) => (
-          <DateSelector key={i}>
-            Session #{i + 1}
-            <Input
-              type="date"
-              onChange={handleChangeFor(i)}
-              value={date ? date : ""}
-            />
-          </DateSelector>
-        ))}
-      </div>
-    </div>
+    <SessionList>
+      {state.dates.map((date, i) => (
+        <DateSelector key={i}>
+          Session #{i + 1}
+          <Input
+            type="date"
+            onChange={handleChangeFor(i)}
+            value={date ?? ""}
+          />
+        </DateSelector>
+      ))}
+    </SessionList>
   );
 }
+
+const SessionList = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+`
 
 const DateSelector = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: baseline;
 `;
 
 const Input = styled.input`
   width: 150px;
+  padding: 0px 4px;
+
+  &[value=""] {
+    color: var(--font-placeholder);
+    font-style: italic;
+  }
 `;

@@ -1,0 +1,9 @@
+html,
+body {
+  --landmark-primary: rgb(21, 134, 174);
+  --font-placeholder: #999;
+
+  margin: 10px;
+
+  background: var(--landmark-primary);
+}
