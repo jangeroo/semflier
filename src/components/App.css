@@ -6,6 +6,11 @@ body {
   background: var(--landmark-primary);
 }
 
+@font-face {
+  font-family: HPBaukasten;
+  src: url(../homepagebaukasten-bold-font/HomepagebaukastenBook-3nYL.ttf);
+}
+
 body {
   margin: 20px;
 }
